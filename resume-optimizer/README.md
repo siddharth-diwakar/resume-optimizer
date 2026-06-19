@@ -1,8 +1,8 @@
 # 📄 Resume Optimizer — Setup Guide (read me first)
 
 This skill does three things for any job you're applying to:
-1. **Tailors your resume** to the posting (ATS-friendly, keyword-tiered).
-2. **Writes a cover letter** — only when you ask.
+1. **Tailors your resume** to the posting — keyword-tiered (must-have / should-have / bonus), ATS-mechanical (heading whitelist, single-column, no tables), bullet craft uses the XYZ formula with strong verbs and quantified impact, and there's a pre-delivery diff against your master resume so you can catch anything you don't want claimed.
+2. **Writes a cover letter** — only when you ask. Not a prose version of your resume: one specific story from your experience that demonstrates the behavior the JD actually rewards, plus a qualitative read on why you'd be good to work with.
 3. **Logs the application** to your Google Sheets tracker (company, title, date, status, + your custom columns).
 
 Setup takes about 10 minutes. You only do it once.
@@ -55,8 +55,8 @@ To change anything later: edit the file in this folder, re-zip, re-upload (it re
 
 Just start a normal chat and talk naturally. The skill loads itself. Examples:
 
-- "Here's a job posting — tailor my resume." *(paste the posting)*
-- "Tailor my resume **and** write a cover letter for this role."
+- "Here's a job posting — tailor my resume." *(paste the posting; skill may ask follow-ups for any gap it finds in your master resume before tailoring, and will show you a diff before delivering)*
+- "Tailor my resume **and** write a cover letter for this role." *(skill may ask you a few questions about the story behind one of your resume bullets — that's how it avoids resume-rehash mode)*
 - "Now log this to my tracker — it's the sheet called *Job Applications 2026*."
 - "Update the Acme application — I got the OA."  *(status update on an existing row)*
 
@@ -84,4 +84,5 @@ Generated files are named `Resume_{Company}_{Role}_{YYYY-MM-DD}.docx` and `Cover
 
 - This `README.md` is just for you — Claude doesn't use it when running the skill.
 - `references/master-resume-example.md` is a reference example only; the skill never sources content from it.
+- `references/cover-letter-guide.md`, `references/keyword-rubric.md`, `references/bullet-craft.md`, and `references/ats-format-spec.md` are reference rules the skill follows — you don't need to touch them unless you want to customize the playbook.
 - You don't type any special command. Plain English triggers the skill.

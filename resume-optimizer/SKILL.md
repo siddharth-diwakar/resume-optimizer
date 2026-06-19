@@ -22,6 +22,9 @@ When reading an uploaded resume:
 ## My other files
 - `references/tracker-columns.md` — (optional) my tracker's sheet name, date format, and column hints. Use it as a hint, but ALWAYS read the live header row and warn me if they diverge.
 - `references/keyword-rubric.md` — how to tier and prioritize keywords from a posting. Follow it.
+- `references/bullet-craft.md` — XYZ formula, strong-verb bank, quantification tactics, word economy, per-bullet self-check. Follow it whenever rewriting bullets.
+- `references/ats-format-spec.md` — section heading whitelist, layout rules, fonts/margins/dates, section ordering by YOE, length, .docx generation spec, pre-delivery checklist. Follow it whenever producing the tailored resume or .docx.
+- `references/cover-letter-guide.md` — the full cover letter playbook (anchor-story selection, behavioral framing, anti-patterns, worked example). Follow it whenever I ask for a cover letter.
 
 Everything you know about my experience comes from my resume — that is the single source of truth. Never invent skills, titles, dates, or numbers. When a bullet would be stronger with a metric and my resume doesn't include one, **ask me for the number rather than inventing it.** If a job needs experience that isn't in my resume, flag it as a gap (see Gap handling).
 
@@ -38,14 +41,38 @@ If I ask you to "import" or "set up" my resume from a file:
 - Which tracker sheet to log to, if you don't already know it this chat (name or link). Remember it for the rest of the conversation.
 
 ## 1. Optimize the resume
-1. Extract and TIER keywords per `references/keyword-rubric.md` (Must-have / Should-have / Bonus). Show the tiered table FIRST, marked [present] / [gap] against my resume.
-2. Map keywords honestly to my real experience.
-3. Mirror Tier-1 wording verbatim where it's true (don't say "containers" if the posting says "Docker").
-4. Rewrite bullets as: action verb + what I did + quantified result. Prefer numbers; ask me for any missing one rather than inventing it.
-5. Front-load the most relevant experience. Drop or compress roles that don't serve this posting — fitting target length matters more than completeness.
-6. Keep it ATS-safe: standard headings, no tables/columns/graphics, simple fonts, nothing in headers/footers.
-7. Produce the tailored resume after the keyword table + gap list.
-8. When I want a file, generate a clean ATS-friendly `.docx`. Name it `Resume_{Company}_{Role}_{YYYY-MM-DD}.docx` (strip spaces/punctuation from company/role).
+
+The resume workflow has four phases: **understand → ask → tailor → verify**. Don't skip ahead — the input check before tailoring and the diff before delivering are where quality is won.
+
+### Phase A — Understand the JD and my resume
+1. **Extract and TIER keywords** per `references/keyword-rubric.md` (Must-have / Should-have / Bonus). Show me the tiered table FIRST, marked [present] / [gap] against my master resume.
+2. **Read the JD for non-keyword signal**: target seniority, scope of ownership, stack specificity, behavioral asks (mentorship, cross-team, on-call), and any explicit length/format requests.
+
+### Phase B — Pre-tailor input check (ask me BEFORE writing)
+Before producing any tailored output, raise these with me explicitly:
+- **Missing context for top JD priorities.** For each Tier-1 / Tier-2 gap or thin spot, ask: "Do you have any experience with X? If yes, give me 1–2 sentences and I'll work it in. If no, we'll handle it as a gap." Better to ask once than to invent OR ship a weaker resume than I could have.
+- **Missing metrics on JD-relevant bullets.** For each bullet that would be stronger with a number and the master resume doesn't include one, ask me for the metric. Don't fabricate.
+- **Target length.** Default 1 page (<10 YOE), 2 pages (10+ YOE). Confirm if ambiguous.
+- **Role-title mismatch.** If the JD's title differs from mine (e.g., "Software Engineer" vs my "Software Developer"), never change my actual title — emphasize JD-aligned work in bullets instead. Flag this to me.
+
+Resolve these BEFORE moving on. Don't proceed with invented content or silent omissions.
+
+### Phase C — Tailor
+3. **Section ordering** by my YOE per `references/ats-format-spec.md` (early-career: Education above Experience; mid/senior: Experience first).
+4. **Rewrite the Summary** specifically for this JD — 2–3 sentences naming my focus area, YOE, and the strongest Tier-1 keyword(s) honestly. Skip the Summary if I'm early-career and it'd just be filler.
+5. **Rewrite bullets** per `references/bullet-craft.md` — XYZ formula, strong verbs (none from the avoid list), quantified impact, no first person, consistent tense.
+6. **Mirror Tier-1 wording verbatim** where it's true (don't say "containers" if the JD says "Docker"). One natural mention per keyword — no stuffing.
+7. **Order bullets within each role from most-JD-relevant to least.** The first bullet of the most recent role is the single most-read line of the whole resume — make it the strongest one for THIS job.
+8. **Budget bullets per role** by recency × JD relevance per `bullet-craft.md` (most recent: 4–6; mid: 3–4; older: 2–3). Drop or compress roles that don't serve this JD before letting any one role overflow.
+9. **Reorder the Skills section** so JD-relevant skills come first within each category.
+10. **Apply the ATS + format spec** in `ats-format-spec.md` — section heading whitelist, single column, no tables/text-boxes/images, no header/footer content, consistent date format, plain-text hyperlinks.
+
+### Phase D — Verify (before delivering)
+11. **Run the pre-delivery self-check** in `ats-format-spec.md`. Revise on any failure.
+12. **Run the per-bullet self-check** in `bullet-craft.md` for every bullet. Revise on any failure.
+13. **Show me a diff vs. my master resume.** List every claim in the tailored output that is not directly supported by my master — Tier-1 keyword swaps (e.g., "containers" → "Docker") are OK and don't need to be listed; new facts, new metrics, new scope, new tools, or new roles DO need to be listed. The list should be empty or short and obvious. If it's not, stop and ask me to confirm or correct each item.
+14. **Deliver in this order**: keyword tier table → gap list with my chosen action per gap → diff vs master → tailored resume (markdown or inline) → `.docx`.
+15. **Generate the `.docx`** per the format spec in `ats-format-spec.md`. Name it `Resume_{Company}_{Role}_{YYYY-MM-DD}.docx` (strip spaces and special characters from company/role tokens).
 
 ### Gap handling
 For each Tier-1 or Tier-2 keyword missing from my resume, give me one of three options and recommend one:
@@ -54,9 +81,21 @@ For each Tier-1 or Tier-2 keyword missing from my resume, give me one of three o
 - **Disqualifier** — flag if the gap likely makes me a non-viable candidate. Be direct; don't pad.
 
 ## 2. Cover letter (ONLY if I ask)
-- Hook: tie to something specific about the company or role (product, recent move, mission). If you don't have a tone signal, ask me for 1–2 sentences from their careers page or About — mirror that register; don't invent tone.
-- Three short sections: why them, why me (2–3 proof points from the resume), confident close.
-- Under ~350 words. Offer it as a `.docx` named `CoverLetter_{Company}_{Role}_{YYYY-MM-DD}.docx`.
+A cover letter is NOT a prose resume. The resume covers "what I did." The cover letter covers "how I work and whether you'd want me on the team." Follow `references/cover-letter-guide.md` in full. Summary of the contract:
+
+1. **Pick the behavioral signal the JD rewards most.** Scan responsibilities and "what we're looking for" for one of: ownership, cross-team collaboration, ambiguity tolerance, mentorship, customer-facing judgment, operational maturity. Pick the strongest signal — don't claim all of them.
+2. **Pick ONE bullet from my resume** whose metric best demonstrates that behavior. Not the most impressive metric — the most *relevant* one. ONLY this metric appears in the letter. Don't list 2–3 proof points.
+3. **Ask me for the *how* if the resume is thin on context.** I.e. "What was the first thing you tried? Who pushed back? What did you almost miss?" The Action portion of the story comes from my answers, not invention.
+4. **Get a tone signal.** If you don't have one, ask me to paste 1–2 sentences from the company's careers/About page, or a recent blog/launch post. Mirror that register; don't invent tone.
+5. **Structure** (4 short paragraphs, 250–350 words total):
+   - **Hook** (~50w): specific to the company/role/team. No "I am writing to apply".
+   - **Anchor story** (~150–180w): the one STAR-shaped story. Action portion is ~55% of the paragraph — that's where behavior shows.
+   - **Why me + why fit** (~80w): qualitative, no new metrics. What I'm optimizing for + what I bring as a teammate, phrased as behaviors not adjectives.
+   - **Close** (~20w): confident, specific, no clichés.
+6. **Self-check before delivering** against the checklist in `cover-letter-guide.md` ("could this be sent to a different company unchanged?" etc.). Revise on any "yes".
+7. Offer it as a `.docx` named `CoverLetter_{Company}_{Role}_{YYYY-MM-DD}.docx`.
+
+Banned phrases (don't ship a letter containing these): "I am writing to apply", "passionate", "team player", "results-driven", "synergize", "go-getter", "wear many hats", "fast-paced environment", "I look forward to hearing from you", "Thank you for your consideration", "Your innovative culture".
 
 ## 3. Log the application to my Google Sheets tracker
 Do this after the resume (and cover letter, if any) are done, unless I say not to.
